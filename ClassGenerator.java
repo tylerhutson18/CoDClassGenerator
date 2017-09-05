@@ -76,73 +76,73 @@ public class ClassGenerator {
 
 /*  Assault Rifle  */
 	
-		public static void arGen() {
-			
-			ArrayList<String> ars = new ArrayList<String>(8);
-            /*0*/ars.add("MTAR");     /*1*/ars.add("TYPE 25"); /*2*/ars.add("SWAT-556");
-			/*3*/ars.add("FAL-OSW"); /*4*/ars.add("M27"); /*5*/ars.add("SCAR-H");	
-			/*6*/ars.add("SMR");    /*7*/ars.add("M8A1"); /*8*/ars.add("AN-94");
-					
-			int randAR = ThreadLocalRandom.current().nextInt(0, ars.size());
-		
-			System.out.println("Primary weapon: " + ars.get(randAR));
-			
-			// remove so wildcard doesn't pick it again
-			ars.remove(randAR);
-		
-			classCount++;
-		}
+	public static void arGen() {
+
+		ArrayList<String> ars = new ArrayList<String>(8);
+    		/*0*/ars.add("MTAR");     /*1*/ars.add("TYPE 25"); /*2*/ars.add("SWAT-556");
+		/*3*/ars.add("FAL-OSW"); /*4*/ars.add("M27"); /*5*/ars.add("SCAR-H");	
+		/*6*/ars.add("SMR");    /*7*/ars.add("M8A1"); /*8*/ars.add("AN-94");
+
+		int randAR = ThreadLocalRandom.current().nextInt(0, ars.size());
+
+		System.out.println("Primary weapon: " + ars.get(randAR));
+
+		// remove so wildcard doesn't pick it again
+		ars.remove(randAR);
+
+		classCount++;
+	}
 
 /*
  * Attachments		
  */
-		
-		public static void arAttachments() {
-			
-			ArrayList<String> att = new ArrayList<String>(14);
-			/*0*/att.add("Reflex"); /*1*/att.add("ACOG"); /*2*/att.add("Target Finder"); /*3*/att.add("Hybrid Optic"); /*4*/att.add("Suppressor"); /*5*/att.add("Fast Mag");	
-			/*7*/att.add("Fore Grip"); /*8*/att.add("Laser Sight"); /*9*/att.add("Adjustable Stock"); /*10*/att.add("Quickdraw"); /*11*/att.add("Millimeter Scanner"); /*12*/att.add("Grenade Launcher");
-			/*13*/att.add("Select Fire"); /*14*/att.add("FMJ"); /*15*/att.add("Extended Clip");
-			
-			Boolean loopVar = true;
-			
-			// loop to make sure no incompatible attachments
-			while(loopVar == true) {
 
-				int randAtt1 = ThreadLocalRandom.current().nextInt(0, att.size());
-				int randAtt2 = ThreadLocalRandom.current().nextInt(0, att.size());
-		
-				// check for incompatible attachments
-				if(randAtt1 == randAtt2  || randAtt2 == randAtt1 
-						|| randAtt1 == 0 && randAtt2 == 1   || randAtt2 == 0 && randAtt1 == 1			// reflex/acog
-						|| randAtt1 == 0 && randAtt2 == 2   || randAtt2 == 0 && randAtt1 == 2			// reflex/tf
-						|| randAtt1 == 0 && randAtt2 == 3   || randAtt2 == 0 && randAtt1 == 3 			// reflex/hybrid optic
-						|| randAtt1 == 0 && randAtt2 == 11  || randAtt2 == 0 && randAtt1 == 11			// reflex/mms
-						|| randAtt1 == 1 && randAtt2 == 2   || randAtt2 == 1 && randAtt1 == 2			// acog/tf
-						|| randAtt1 == 1 && randAtt2 == 3   || randAtt2 == 1 && randAtt1 == 3			// acog/hybrid optic
-						|| randAtt1 == 1 && randAtt2 == 11  || randAtt2 == 1 && randAtt1 == 11			// acog/mms
-						|| randAtt1 == 2 && randAtt2 == 3   || randAtt2 == 2 && randAtt1 == 3			// tf/hybrid
-						|| randAtt1 == 2 && randAtt2 == 11  || randAtt2 == 2 && randAtt1 == 11			// tf/mms
-						|| randAtt1 == 3 && randAtt2 == 12  || randAtt2 == 3 && randAtt1 == 12			// hybrid optic/grenade
-						|| randAtt1 == 3 && randAtt2 == 11  || randAtt2 == 3 && randAtt1 == 11			// hybrid optic/mms
-						|| randAtt1 == 4 && randAtt2 == 14  || randAtt2 == 4 && randAtt1 == 14			// suppressor/fmj
-						|| randAtt1 == 5 && randAtt2 == 15  || randAtt2 == 5 && randAtt1 == 15			// fast mag/extended clip
-						|| randAtt1 == 7 && randAtt2 == 12  || randAtt2 == 7 && randAtt1 == 12 			// fore grip/grenade
-						|| randAtt1 == 11 && randAtt2 == 14 || randAtt2 == 11 && randAtt1 == 14			// mms/fmj
-						|| randAtt1 == 11 && randAtt2 == 1  || randAtt2 == 11 && randAtt1 == 1
-						) {
-					loopVar = true;
-				} else {
-					
-					System.out.println("Attachments: " + att.get(randAtt1) + ", " + att.get(randAtt2));
-					
-					loopVar = false;
-					classCount++; classCount++;
-				}
-				
+	public static void arAttachments() {
+
+		ArrayList<String> att = new ArrayList<String>(14);
+		/*0*/att.add("Reflex"); /*1*/att.add("ACOG"); /*2*/att.add("Target Finder"); /*3*/att.add("Hybrid Optic"); /*4*/att.add("Suppressor"); /*5*/att.add("Fast Mag");	
+		/*7*/att.add("Fore Grip"); /*8*/att.add("Laser Sight"); /*9*/att.add("Adjustable Stock"); /*10*/att.add("Quickdraw"); /*11*/att.add("Millimeter Scanner"); /*12*/att.add("Grenade Launcher");
+		/*13*/att.add("Select Fire"); /*14*/att.add("FMJ"); /*15*/att.add("Extended Clip");
+
+		Boolean loopVar = true;
+
+		// loop to make sure no incompatible attachments
+		while(loopVar == true) {
+
+			int randAtt1 = ThreadLocalRandom.current().nextInt(0, att.size());
+			int randAtt2 = ThreadLocalRandom.current().nextInt(0, att.size());
+
+			// check for incompatible attachments
+			if(randAtt1 == randAtt2  || randAtt2 == randAtt1 
+					|| randAtt1 == 0 && randAtt2 == 1   || randAtt2 == 0 && randAtt1 == 1			// reflex/acog
+					|| randAtt1 == 0 && randAtt2 == 2   || randAtt2 == 0 && randAtt1 == 2			// reflex/tf
+					|| randAtt1 == 0 && randAtt2 == 3   || randAtt2 == 0 && randAtt1 == 3 			// reflex/hybrid optic
+					|| randAtt1 == 0 && randAtt2 == 11  || randAtt2 == 0 && randAtt1 == 11			// reflex/mms
+					|| randAtt1 == 1 && randAtt2 == 2   || randAtt2 == 1 && randAtt1 == 2			// acog/tf
+					|| randAtt1 == 1 && randAtt2 == 3   || randAtt2 == 1 && randAtt1 == 3			// acog/hybrid optic
+					|| randAtt1 == 1 && randAtt2 == 11  || randAtt2 == 1 && randAtt1 == 11			// acog/mms
+					|| randAtt1 == 2 && randAtt2 == 3   || randAtt2 == 2 && randAtt1 == 3			// tf/hybrid
+					|| randAtt1 == 2 && randAtt2 == 11  || randAtt2 == 2 && randAtt1 == 11			// tf/mms
+					|| randAtt1 == 3 && randAtt2 == 12  || randAtt2 == 3 && randAtt1 == 12			// hybrid optic/grenade
+					|| randAtt1 == 3 && randAtt2 == 11  || randAtt2 == 3 && randAtt1 == 11			// hybrid optic/mms
+					|| randAtt1 == 4 && randAtt2 == 14  || randAtt2 == 4 && randAtt1 == 14			// suppressor/fmj
+					|| randAtt1 == 5 && randAtt2 == 15  || randAtt2 == 5 && randAtt1 == 15			// fast mag/extended clip
+					|| randAtt1 == 7 && randAtt2 == 12  || randAtt2 == 7 && randAtt1 == 12 			// fore grip/grenade
+					|| randAtt1 == 11 && randAtt2 == 14 || randAtt2 == 11 && randAtt1 == 14			// mms/fmj
+					|| randAtt1 == 11 && randAtt2 == 1  || randAtt2 == 11 && randAtt1 == 1
+					) {
+				loopVar = true;
+			} else {
+
+				System.out.println("Attachments: " + att.get(randAtt1) + ", " + att.get(randAtt2));
+
+				loopVar = false;
+				classCount++; classCount++;
 			}
-			
+
 		}
+
+	}
 		
 /*  
  * 	SMG
